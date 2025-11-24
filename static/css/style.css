@@ -1,0 +1,245 @@
+/* --- ESTILOS BÁSICOS --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+/* Encabezado */
+header {
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 24px;
+    margin-right: 20px;
+}
+
+header input[type="text"] {
+    flex-grow: 1;
+    padding: 8px;
+    margin-right: 10px; /* Reducido para hacer espacio al botón de búsqueda */
+    border: 1px solid #ccc;
+}
+
+/* 🌟 NUEVO ESTILO: Botón Buscar 🌟 */
+#searchBtn {
+    background-color: #3f68a6; /* Color azul ligeramente diferente */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    margin-right: 10px; /* Espacio antes del botón de sesión */
+}
+
+#searchBtn:hover {
+    background-color: #315383;
+}
+/* 🌟 FIN NUEVO ESTILO 🌟 */
+
+#sessionBtn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+}
+
+/* Contenido Principal y Sidebar */
+.content-container {
+    display: flex;
+    gap: 20px;
+}
+
+.definitions-container {
+    flex: 3;
+}
+
+.sidebar {
+    flex: 1;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    height: fit-content;
+    text-align: center; /* Centrar el texto en el sidebar */
+}
+
+.sidebar p {
+    margin-bottom: 10px;
+}
+
+#addDefBtn {
+    width: 100%;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* --- ESTILOS DE TARJETA CON FLEXBOX Y POSICIONAMIENTO --- */
+
+.card {
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Usamos Flexbox para alinear la imagen y el texto lado a lado */
+.card-content {
+    display: flex;
+    gap: 20px; /* Espacio entre la imagen y el texto */
+    padding: 0; /* Asegurar que no haya padding extra */
+}
+
+/* Estilos del Contenedor de Imagen (Para posicionar el botón) */
+.image-wrapper {
+    position: relative; /* Clave para posicionar el botón dentro */
+    flex-shrink: 0; /* Evita que la imagen se achique si el texto es muy largo */
+    width: 200px; /* Ancho fijo para la imagen */
+    height: 150px; /* Alto fijo para la imagen */
+    overflow: hidden; /* Oculta cualquier parte de la imagen que se desborde */
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen cubra todo el espacio sin distorsionarse */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+/* Estilos del Contenido de Texto */
+.text-content {
+    flex-grow: 1; /* Permite que el texto ocupe el espacio restante */
+    padding-top: 5px; /* Ajuste visual para alinear con el texto de la imagen */
+}
+
+.text-content h2 {
+    margin-bottom: 5px;
+}
+
+.text-content .type {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.text-content p {
+    margin-bottom: 5px;
+}
+
+/* Estilos del Botón "Me gusta" Superpuesto */
+.image-overlay-btn {
+    position: absolute;
+    bottom: 5px; /* Distancia desde la parte inferior de la imagen */
+    left: 5px;  /* Distancia desde la parte izquierda de la imagen */
+    
+    /* Estilos visuales para el botón */
+    background-color: rgba(126, 2, 105, 0.795); /* Fondo semitransparente oscuro */
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    font-size: 15px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.image-overlay-btn:active {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Contenedor principal del modal (pantalla completa y oscuro) */
+.modal {
+    display: none; /* Inicia oculto */
+    position: fixed; /* Posicionamiento fijo sobre todo */
+    z-index: 10; /* Asegura que esté encima de otros elementos */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Habilitar scroll si el contenido es grande */
+    background-color: rgba(0,0,0,0.6); /* Fondo negro semitransparente */
+    padding-top: 50px;
+}
+
+/* Contenido del modal (la caja blanca flotante) */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; /* 5% desde arriba y centrado horizontalmente */
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%; /* Ancho del modal */
+    max-width: 500px; /* Ancho máximo para pantallas grandes */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    position: relative;
+}
+
+/* Botón de cerrar (la "x") */
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Estilos del formulario dentro del modal */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Incluye padding y border en el width/height */
+}
+
+/* Estilo para el botón de "Guardar Definición" */
+#definitionForm button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+}
+
+#definitionForm button[type="submit"]:hover {
+    background-color: #0056b3;
+}

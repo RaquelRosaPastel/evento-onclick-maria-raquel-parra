@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Titulo del documento-->
+    <title>Petlopedia</title>
+    <!-- Autor del documento-->
+    <meta name="author" content="raquel.parra.roldan@gmail.com">
+    <!-- Descripcion del documento-->
+    <meta name="description" content="pagina enciclopedia pet, Petlopedia">
+    <!-- Estilos css-->
+    <link rel="stylesheet" href="static/css/style.css">
+  </head>
+  <body>
+    <header>
+      <div class="header-content">
+        <h1>Petlopedia</h1>
+        <input type="text" placeholder="Buscar mascotas" id="searchInput" />
+        <button id="searchBtn" onclick="performSearch()">Buscar</button>
+        <button id="sessionBtn" onclick="toggleSession()">Cerrar sesión</button>
+      </div>
+    </header>
+
+    <main>
+      <div class="content-container">
+        <div class="definitions-container">
+          <div class="card" data-title="Gato Atigrado">
+            <div class="card-content">
+              <div class="image-wrapper">
+                <img
+                  src="https://picsum.photos/id/1025/200/150"
+                  alt="Gato Atigrado"
+                />
+                <button
+                  class="likeBtn image-overlay-btn"
+                  onclick="likeDefinition(this)"
+                >
+                  <span class="likeCount">23</span> me gusta
+                </button>
+              </div>
+
+              <div class="text-content">
+                <h2>Gato Atigrado</h2>
+                <p class="type">sustantivo</p>
+                <p><strong>Plural:</strong> Gatos Atigrados</p>
+                <p>
+                  Un gato con un pelaje distintivo que presenta rayas, puntos o
+                  patrones en remolino, usualmente con una marca en forma de "M"
+                  en su frente
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" data-title="Golden Retriever">
+            <div class="card-content">
+              <div class="image-wrapper">
+                <img
+                  src="https://picsum.photos/id/237/200/150"
+                  alt="Golden Retriever"
+                />
+                <button
+                  class="likeBtn image-overlay-btn"
+                  onclick="likeDefinition(this)"
+                >
+                  <span class="likeCount">45</span> me gusta
+                </button>
+              </div>
+
+              <div class="text-content">
+                <h2>Golden Retriever</h2>
+                <p class="type">sustantivo</p>
+                <p><strong>Plural:</strong> Golden Retrievers</p>
+                <p>
+                  Una raza de perro amistosa, inteligente y devota, conocida por
+                  su pelaje dorado y su habilidad para recuperar objetos sin
+                  dañarlos
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar">
+          <p>Petlopedia está definida por TI</p>
+          <button id="addDefBtn" onclick="openModal()">
+            Agregar Definición
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <div id="definitionModal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h3>Añadir nueva definición</h3>
+        <form id="definitionForm">
+          <div class="form-group">
+            <label for="title">Título de la Definición:</label>
+            <input type="text" id="title" name="title" required />
+          </div>
+          <div class="form-group">
+            <label for="plural">Plural (Opcional):</label>
+            <input type="text" id="plural" name="plural" />
+          </div>
+          <div class="form-group">
+            <label for="description">Descripción:</label>
+            <textarea
+              id="description"
+              name="description"
+              rows="4"
+              required
+            ></textarea>
+          </div>
+          <button type="submit">Guardar Definición</button>
+        </form>
+      </div>
+    </div>
+    <script src="static/js/script.js"></script>
+  </body>
+</html>
